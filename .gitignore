@@ -1,1 +1,8 @@
 *.ipynb
+.ipynb_checkpoints/*
+.ipynb_checkpoints
+*.c
+*.cpp
+build/*
+build
+*.so
