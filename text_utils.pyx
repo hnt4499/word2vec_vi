@@ -1,12 +1,13 @@
-from libcpp.string cimport string
-from libcpp.vector cimport vector
+# cython: language_level = 3
+# distutils: language = c++
 
 import re
 
+from underthesea import sent_tokenize, word_tokenize
 
 split_periods = re.compile("(?<=\.{2})\s*(?=[A-Z]+)")
 
-cpdef vector[string] sent_tokenizer(string[] text):
+cpdef list sent_tokenizer(list text):
     """Take a list of lines as input and produce a list of sentences.
 
     Parameters
@@ -22,16 +23,15 @@ cpdef vector[string] sent_tokenizer(string[] text):
     """
     cdef:
         int i
-        string t, u
-        string[] ts
-        vector[string] container, ans
+        str t, u
+        list ts, container = [], ans = []
 
     for t in text:
         ts = sent_tokenize(t)
         for u in ts:
-            container.push_back(u)
+            container.append(u)
     for t in container:
         ts = split_periods.split(t)
         for u in ts:
-            ans.push_back(u)
+            ans.append(u)
     return ans
