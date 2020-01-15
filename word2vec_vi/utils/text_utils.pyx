@@ -10,7 +10,7 @@ split_periods = re.compile("(?<=\.{2})\s*(?=[A-Z]+)")
 re_punct = re.compile("[^\w\s]")
 re_digit = re.compile("[\d]")
 
-cdef list sent_tokenizer(list text):
+cpdef list sent_tokenizer(list text):
     """Take a list of lines as input and produce a list of sentences.
 
     Parameters
@@ -59,7 +59,7 @@ cdef str remove(str text):
     return ans
 
 
-cdef list word_tokenizer(str text):
+cpdef list word_tokenizer(str text):
     """Take one sentence as input and produce a list of tokens.
 
     Parameters
