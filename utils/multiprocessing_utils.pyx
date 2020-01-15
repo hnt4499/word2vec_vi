@@ -1,6 +1,8 @@
 # cython: language_level = 3
 # distutils: language = c++
 
+import time
+
 from threading import Thread, Lock
 from multiprocessing import Process, Pool
 from queue import Queue
@@ -18,10 +20,6 @@ cdef class IterableQueue:
         Time (in seconds) between each try
 
     """
-    cdef:
-        dict params
-        int tries
-        float wait_time
 
     def __init__(self, dict params, int maxsize=1000,
                  int tries=5, float wait_time=0.1):

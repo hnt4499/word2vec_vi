@@ -1,4 +1,8 @@
 from distutils.core import setup
 from Cython.Build import cythonize
 
-setup(ext_modules=cythonize('text_utils.pyx'))
+setup(name="word2vec_vi",
+      packages=["word2vec_vi", "word2vec_vi.utils",
+                ],
+      ext_modules=cythonize("**/*.pyx"),
+      )
