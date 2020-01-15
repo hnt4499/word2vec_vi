@@ -6,3 +6,5 @@
 build/*
 build
 *.so
+**/__pycache__/*
+**/__pycache__
