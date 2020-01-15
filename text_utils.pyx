@@ -57,3 +57,35 @@ cdef str remove(str text):
     ans = re_punct.sub("", text)
     ans = re_digit.sub("", ans)
     return ans
+
+
+cpdef list word_tokenizer(str text):
+    """Take one sentence as input and produce a list of tokens.
+
+    Parameters
+    ----------
+    text : str
+        Input sentence.
+
+    Returns
+    -------
+    list
+        List of tokenized words.
+
+    """
+
+    cdef:
+        int i
+        str t, u, mt = ""
+        list ts, ans = []
+    # Tokenize into words
+    ts = word_tokenize(text)
+    for t in ts:
+        u = t.lower()
+        # Remove punctuations and digits
+        u = remove(u)
+        # Ignore empty string
+        if u != mt:
+            ans.append(u)
+
+    return ans
