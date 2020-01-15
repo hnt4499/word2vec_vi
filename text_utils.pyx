@@ -40,7 +40,7 @@ cpdef list sent_tokenizer(list text):
     return ans
 
 
-cpdef str remove(str text):
+cdef str remove(str text):
     """Remove whitespaces and digits from text.
 
     Parameters
