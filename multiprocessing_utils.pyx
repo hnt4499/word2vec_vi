@@ -1,3 +1,6 @@
+# cython: language_level = 3
+# distutils: language = c++
+
 from threading import Thread, Lock
 from multiprocessing import Process, Pool
 from queue import Queue
