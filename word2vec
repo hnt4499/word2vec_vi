@@ -1,0 +1,4 @@
+import sys
+from word2vec_vi.cli import cli_handler
+
+cli_handler(sys.argv)
